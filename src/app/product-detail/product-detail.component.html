@@ -1,10 +1,4 @@
-import { Component,Input } from '@angular/core';
-import {Product} from './product';
-
-@Component({
-  selector: 'product-detail',
-  template: `
-  <div *ngIf="product">
+<div *ngIf="product">
     <h2>{{product.Name}} details!</h2>
     <table>
       <tr>
@@ -32,10 +26,5 @@ import {Product} from './product';
         <td align='left'><input [(ngModel)]="product.Category" placeholder="Category"></td>
       </tr>
     </table>
-  </div>`,
-  styles: []
-})
-export class ProductDetailComponent {
-  @Input()
-    product:Product;
-}
+    <button (click)="goBack()">Back</button>    
+  </div>

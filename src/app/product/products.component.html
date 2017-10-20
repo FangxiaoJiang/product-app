@@ -1,0 +1,14 @@
+<h2>My Products</h2>
+<ul class="products">
+  <li *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
+      <span class="badge">{{product.Id}}</span> {{product.Name}}
+  </li>
+</ul>
+<div *ngIf="selectedProduct">
+  <h2>
+    {{selectedProduct.Name | uppercase}} is my product.
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>
+<cart-detail [product]="selectedProduct"></cart-detail>
+<product-form></product-form>
