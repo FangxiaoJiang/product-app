@@ -11,16 +11,25 @@ export class ProductService {
     return Promise.resolve(Products);
   } // stub*/
   //private _products=new BehaviorSubject<Product[]>(null);
-  //--private _products=Observable.of(Products);
-  //--getProducts():Observable<Product[]>{
+  private _products=Observable.of(Products);
+  getProducts():Observable<Product[]>{
       //this._products.next(Products);
       //return new BehaviorSubject<Product[]>(Products).asObservable();
       //setTimeout(()=>this._products.next(Products),1000);
       //this._products.next(Products);
-      //--return this._products;
-  //--}
-  private heroesUrl = 'api/heroes';
-  constructor(private http: Http) { }
+      return this._products;
+  }
+  /*private heroesUrl = 'api/heroes';
+  constructor(private http: Http) {}
+
+  getProducts(): Promise<Product[]> {
+    return this.http.get(this.heroesUrl).subscribe(
+      response => response.json().data as Hero[]
+    )
+               .then(response => response.json().data as Hero[])
+               .catch(this.handleError);
+  }*/
+
   addProduct(p:Product):void{
     Products.push(p);
   }

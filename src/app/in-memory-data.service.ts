@@ -1,5 +1,5 @@
-import { InMemoryDbService } from 'angular-in-memory-web-api';
-export class InMemoryDataService implements InMemoryDbService {
+//import { InMemoryDbService } from 'angular-in-memory-web-api';
+/*export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const products = [
         { Id: 1, Name: 'Iphone 6plux', Description:'No more create', Price:999.99, Condition:'new', Category:'Phone'},
@@ -11,4 +11,4 @@ export class InMemoryDataService implements InMemoryDbService {
     ];
     return {products};
   }
-}
+}*/

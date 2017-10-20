@@ -12,8 +12,8 @@ import {RouterModule} from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { AppRoutingModule }     from './app-routing.module';
 import { HttpModule }    from '@angular/http';
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService }  from './in-memory-data.service';
+//import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { InMemoryDataService }  from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 
@@ -32,8 +32,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+//    HttpModule,
+ //   InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   providers: [ProductService],
