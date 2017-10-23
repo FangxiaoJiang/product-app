@@ -4,7 +4,4 @@
       <span class="badge">{{product.id}}</span> {{product.name}}
   </li>
 </ul>
-<div *ngIf="selectedProduct">
-  <button (click)="gotoDetail()">View Details</button>
-</div>
-<cart-detail [product]="selectedProduct"></cart-detail>
+<button (click)="delete()">Delete</button>

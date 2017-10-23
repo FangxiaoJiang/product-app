@@ -8,6 +8,6 @@ export class calculateTotalFeePipe implements PipeTransform{
     transform(product:Product,num:number){
         if(!Product || !num)
             return null;
-        return product.Price*num;
+        return product.price*num;
     }
 }

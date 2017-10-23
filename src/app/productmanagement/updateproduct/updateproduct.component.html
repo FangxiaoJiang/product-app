@@ -1,0 +1,23 @@
+<form #form="ngForm" (ngSubmit)="submit(form);form.reset()">
+    <div class="form-group">
+        <label for="product_id">Product Id</label>
+        <input required existId ngModel name="product_id" id="product_id" type="text" class="form-control" #product_id="ngModel"> 
+        <div class="alert alert-danger" *ngIf="product_id.touched && product_id.invalid">
+            <div *ngIf="product_id.errors.uniqueId">Product Id must be existed.</div>
+            <div *ngIf="product_id.errors.required">Product Id is required.</div>
+        </div>                
+        <label for="product_name">Product Name</label>
+        <input ngModel name="product_name" id="product_name" type="text" class="form-control">
+        <label for="product_description">Product Description</label>
+        <textarea ngModel name="product_description" id="product_description" 
+            cols='30' row='10' class="form-control"></textarea>
+        <label for="product_price">Product Price</label>
+        <input ngModel name="product_price" id="product_price" type="text" class="form-control">
+        <label for="product_condition">Product Condition</label>
+        <input ngModel name="product_condition" id="product_condition" type="text" class="form-control">
+        <label for="product_category">Product Category</label>
+        <input ngModel name="product_category" id="product_category" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+    

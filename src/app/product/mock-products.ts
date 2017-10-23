@@ -1,10 +1,10 @@
 import {Product,Conditions} from './product';
 
 export const Products: Product[] = [
-    { Id: 1, Name: 'Iphone 6plux', Description:'No more create', Price:999.99, Condition:'new', Category:'Phone'},
-    { Id: 2, Name: 'Surface', Description:'More than you can imagine', Price:1999.99, Condition:'new', Category:'PC'},
-    { Id: 3, Name: 'Addiass pants', Description:'It is time for changing now', Price:19.99, Condition:'discount', Category:'Clothes'},
-    { Id: 4, Name: 'Chicken', Description:'Fresh!', Price:4.9, Condition:'new', Category:'Food'},
-    { Id: 5, Name: 'Coca cola', Description:'High up!', Price:0.49, Condition:'new', Category:'Drink'},
-    { Id: 6, Name: 'MWA', Description:'Let us enjoy programming!', Price:1, Condition:'used', Category:'Book'},
+    { id: 1, name: 'Iphone 6plux', description:'No more create', price:999.99, condition:'new', category:'Phone'},
+    { id: 2, name: 'Surface', description:'More than you can imagine', price:1999.99, condition:'new', category:'PC'},
+    { id: 3, name: 'Addiass pants', description:'It is time for changing now', price:19.99, condition:'discount', category:'Clothes'},
+    { id: 4, name: 'Chicken', description:'Fresh!', price:4.9, condition:'new', category:'Food'},
+    { id: 5, name: 'Coca cola', description:'High up!', price:0.49, condition:'new', category:'Drink'},
+    { id: 6, name: 'MWA', description:'Let us enjoy programming!', price:1, condition:'used', category:'Book'},
   ];

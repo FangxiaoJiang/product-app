@@ -11,7 +11,7 @@ export class CartService{
         if (selectedProduct){
           this.total++;  
           for(let i=0;i<this.Items.length;i++){
-            if(this.Items[i].product.Id===selectedProduct.Id){
+            if(this.Items[i].product.id===selectedProduct.id){
               this.Items[i].quantity++;
               return;
             }
@@ -29,7 +29,7 @@ export class CartService{
     getAllFees(){
         let total:number=0;
         for(let i=0;i<this.Items.length;i++)
-            total+=this.Items[i].product.Price*this.Items[i].quantity;
+            total+=this.Items[i].product.price*this.Items[i].quantity;
         return total;
     }
 

@@ -1,10 +1,10 @@
 export class Product{
-    constructor(public Id:number,
-                public Name:string,
-                public Description:string,
-                public Price:number,
-                public Condition:string,
-                public Category:string){};
+    constructor(public id:number,
+                public name:string,
+                public description:string,
+                public price:number,
+                public condition:string,
+                public category:string){};
   }
 
 export const Conditions=['New','Used','Discount'];

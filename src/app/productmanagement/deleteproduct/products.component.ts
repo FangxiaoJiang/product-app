@@ -1,8 +1,7 @@
 import { Component,OnInit } from '@angular/core';
-import {Product,Conditions} from './product';
-import {ProductService} from './product.service';
+import {Product,Conditions} from '../../product/product';
+import {ProductService} from '../../product/product.service';
 import {Observable} from 'rxjs/Observable';
-import {cartItem} from '../cart/cart-item';
 import {Router} from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import {Router} from '@angular/router';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
 })
-export class ProductsComponent implements OnInit {
+export class DeleteProductComponent implements OnInit {
 
   constructor(private productservice: ProductService,private router:Router) {}
   selectedProduct:Product;
@@ -23,7 +22,8 @@ export class ProductsComponent implements OnInit {
   onSelect(product: Product): void {
     this.selectedProduct = product;
   }
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedProduct.id]);
+  delete(): void {
+    this.productservice.deleteProduct(this.selectedProduct);
+    this.router.navigate(['']);
   }
 }

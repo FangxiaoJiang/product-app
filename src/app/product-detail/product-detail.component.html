@@ -1,29 +1,29 @@
 <div *ngIf="product">
-    <h2>{{product.Name}} details!</h2>
+    <h2>{{product.name}} details!</h2>
     <table>
       <tr>
         <td align='right'>Id:</td>
-        <td align='left'><input [(ngModel)]="product.Id" placeholder="Id"></td>
+        <td align='left'><input [(ngModel)]="product.id" placeholder="Id" readonly></td>
       </tr>
       <tr>
         <td align='right'>Name:</td>
-        <td align='left'><input [(ngModel)]="product.Name" placeholder="Name"></td>
+        <td align='left'><input [(ngModel)]="product.name" placeholder="Name" readonly></td>
       </tr>
       <tr>
         <td align='right'>Description:</td>
-        <td align='left'><input [(ngModel)]="product.Description" placeholder="Description"></td>
+        <td align='left'><input [(ngModel)]="product.description" placeholder="Description" readonly></td>
       </tr>
       <tr>
         <td align='right'>Price:</td>
-        <td align='left'><input [(ngModel)]="product.Price" placeholder="Price"></td>
+        <td align='left'><input [(ngModel)]="product.price" placeholder="Price" readonly></td>
       </tr>
       <tr>
         <td align='right'>Condition:</td>
-        <td align='left'><input [(ngModel)]="product.Condition" placeholder="Condition"></td>
+        <td align='left'><input [(ngModel)]="product.condition" placeholder="Condition" readonly></td>
       </tr>
       <tr>
         <td align='right'>Category:</td>
-        <td align='left'><input [(ngModel)]="product.Category" placeholder="Category"></td>
+        <td align='left'><input [(ngModel)]="product.category" placeholder="Category" readonly></td>
       </tr>
     </table>
     <button (click)="goBack()">Back</button>    
