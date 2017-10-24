@@ -20,11 +20,11 @@ export class AddProductComponent {
                 form.value.product_id,
                 form.value.product_name,
                 form.value.product_description,
-                parseInt(form.value.product_price) ,
+                +form.value.product_price ,
                 form.value.product_condition,
                 form.value.product_category
             ))
         };
-        this.router.navigate([""]);
+        this.router.navigate(["show"]);
     }
 }

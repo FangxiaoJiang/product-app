@@ -1,16 +1,18 @@
 import { Component,OnInit } from '@angular/core';
 import { HttpClient }    from '@angular/common/http';
-import {Product} from './product/product';
-
+import {User} from './user/user';
+import {UserService} from './user/user.service';
+import {ProductService} from './product/product.service';
 
 @Component({
     selector:"my-app",
     template:`
         <h1>{{title}}</h1>
+        <user></user>
         <nav>
             <a routerLink="/dashboard">Dashboard</a>
             <a routerLink="/products">Products</a>
-            <a routerLink="/productmanagement">ProductManagement</a>
+            <a *ngIf='userservice.getAdminState()' routerLink="/productmanagement">ProductManagement</a>
         </nav>
         <router-outlet></router-outlet>`,
     styleUrls:['./app.component.css']
@@ -18,4 +20,5 @@ import {Product} from './product/product';
 
 export class AppComponent{
     title = 'Tour of Products';
+    constructor(private userservice:UserService,private producetservice:ProductService){};
 }

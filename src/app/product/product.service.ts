@@ -79,6 +79,15 @@ export class ProductService {
   }
 
   getProduct(id:number):Observable<Product>{
-    return Observable.of(Products.find(value=>value.id===id));
+    return this.http.get(this.url+'/'+id).map(
+      value=>{return new Product(
+        (value as Product).id,
+        (value as Product).name,
+        (value as Product).description,
+        (value as Product).price,
+        (value as Product).condition,
+        (value as Product).category
+      )}
+    )
   }
 }

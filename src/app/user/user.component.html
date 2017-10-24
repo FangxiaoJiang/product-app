@@ -1,0 +1,23 @@
+
+<div *ngIf="!userservice.getLoginState()">
+    <h4>Please Login:</h4>
+    <form #form="ngForm" (ngSubmit)="submit(form);form.reset()">
+        <div class="form-group">
+            <label for="accountid">Account Id</label>
+            <input required ngModel name="accountid" id="accountid" type="text" class="form-control" #accountid="ngModel"> 
+            <div class="alert alert-danger" *ngIf="accountid.touched && accountid.invalid">
+                <div *ngIf="accountid.errors.required">Account Id is required.</div>
+            </div>   
+            <label for="password">Password</label>
+            <input required ngModel name="password" id="password" type="text" class="form-control" #password="ngModel"> 
+            <div class="alert alert-danger" *ngIf="password.touched && password.invalid">
+                <div *ngIf="password.errors.required">Password is required.</div>
+            </div>              
+        </div>
+        <button class="btn btn-primary" type="submits">Login</button>
+    </form>
+</div>    
+<div *ngIf="userservice.getLoginState()">
+    <span>Welcome {{userservice.getCurrentUser()|FN}}</span>
+    <button class="btn btn-primary" (click)="logout()">Logout</button>
+</div>

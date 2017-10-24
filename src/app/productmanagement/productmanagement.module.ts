@@ -6,11 +6,13 @@ import { ProductManageRoutingModule } from './productmanagement-routing.module';
 import { AddProductModule } from './addproduct/addproduct.module';
 import { UpdateProductModule } from './updateproduct/updateproduct.module';
 import { DeleteProductComponent } from './deleteproduct/products.component';
+import { ShowProductComponent } from './showproduct/products.component';
 
 @NgModule({
   declarations: [
     ProductManageComponent,
-    DeleteProductComponent
+    DeleteProductComponent,
+    ShowProductComponent
   ],
   imports: [
     BrowserModule,

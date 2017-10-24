@@ -11,6 +11,12 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import { AppRoutingModule }     from './app-routing.module';
 import { HttpClient,HttpClientModule }    from '@angular/common/http';
 import { ProductManageModule } from './productmanagement/productmanagement.module';
+import { UserService } from './user/user.service';
+import { UserComponent } from './user/user.component';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './authorization/authorization.component';
+import {AuthAdminGuard,AuthLoginGuard} from './routerguard/routerguard.component';
+import {FirstNamePipe} from './user/FirstName.pipe';
 
 import { AppComponent } from './app.component';
 
@@ -21,7 +27,9 @@ import { AppComponent } from './app.component';
     CartDetailComponent,
     calculateTotalFeePipe,
     ProductsComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent,
+    FirstNamePipe
   ],
   imports: [
     BrowserModule,
@@ -30,7 +38,10 @@ import { AppComponent } from './app.component';
     HttpClientModule,
     ProductManageModule
   ],
-  providers: [ProductService,HttpClient],
+  providers: [ProductService,HttpClient,UserService,AuthAdminGuard,AuthLoginGuard,
+              {provide: HTTP_INTERCEPTORS,
+                useClass: AuthInterceptor,
+                multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
