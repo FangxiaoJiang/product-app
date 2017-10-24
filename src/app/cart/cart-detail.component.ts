@@ -2,12 +2,14 @@ import { Component,Input,OnInit } from '@angular/core';
 import {Product,Conditions} from '../product/product';
 import {CartService} from './cart.service'; 
 import {cartItem} from './cart-item';
+import {UserService} from '../user/user.service';
 
 @Component({
   selector: 'cart-detail',
   template: `
   <input type="button" value='Add to Cart' (click)="cartservice.add_product(product)">
   <input type="button" value='Show Cart' (click)="cartservice.changeState()">
+  <input type="button" value='Checkout' (click)="checkout()">
   <p>You have orderd {{cartservice.getTotal()}} products on your cart.</p>
   <div *ngIf="cartservice.getIsShow()">
     <thead>
@@ -54,8 +56,15 @@ export class CartDetailComponent implements OnInit {
   @Input()
     product:Product;
   items:cartItem[];
-  constructor(private cartservice:CartService){};
+  constructor(private cartservice:CartService,private userservice:UserService){};
   ngOnInit(){
     this.items=this.cartservice.getItems();
+  }
+  checkout(){
+    if(this.userservice.getLoginState()){
+      console.log("you have been loginning");
+    }
+    else
+      window.alert("Please Login!");
   }
 }
