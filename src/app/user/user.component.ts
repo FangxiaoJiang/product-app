@@ -22,9 +22,10 @@ export class UserComponent{
 
     submit(form){
         this.userservice.comfirm(
-            form.value.accountid,
+            form.value.email,
             form.value.password
         ).subscribe();
+        this.router.navigate([""]);
     }
     logout(){
         this.userservice.setLoginState();

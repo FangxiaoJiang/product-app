@@ -52,7 +52,7 @@ export class ProductService {
 
   addProduct(p:Product):void{
     let body={
-      "id":p.id,
+      "id":+p.id,
       "name":p.name,
       "description":p.description,
       "price":p.price,
@@ -64,7 +64,7 @@ export class ProductService {
 
   updateProduct(p:Product):void{
     let body={
-      "id":p.id,
+      "id":+p.id,
       "name":p.name,
       "description":p.description,
       "price":p.price,

@@ -17,6 +17,10 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthInterceptor} from './authorization/authorization.component';
 import {AuthAdminGuard,AuthLoginGuard} from './routerguard/routerguard.component';
 import {FirstNamePipe} from './user/FirstName.pipe';
+import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { DataService } from './onetemp/data.service';
+import { HttpModule } from '@angular/http';
+import { LoginComponent } from './login/login.component';
 
 import { AppComponent } from './app.component';
 
@@ -29,18 +33,22 @@ import { AppComponent } from './app.component';
     ProductsComponent,
     DashboardComponent,
     UserComponent,
-    FirstNamePipe
+    FirstNamePipe,
+    RegisteruserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ProductManageModule
+    ProductManageModule,
+    HttpModule
   ],
-  providers: [ProductService,HttpClient,UserService,AuthAdminGuard,AuthLoginGuard,
+  providers: [ProductService,HttpClient,UserService,AuthAdminGuard,
+              AuthLoginGuard,DataService,
               {provide: HTTP_INTERCEPTORS,
-                useClass: AuthInterceptor,
+                useClass: AuthInterceptor, 
                 multi: true}],
   bootstrap: [AppComponent]
 })

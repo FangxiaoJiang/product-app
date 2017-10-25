@@ -1,0 +1,54 @@
+<div class="col-md-12 col-md-offset-3">
+    <h1>Add User </h1>
+
+    <div   *ngIf="isValid" >
+    <div class="alert alert-success">You registered succesfully!!</div>
+   
+
+    </div>
+    <form #f="ngForm"  value='' novalidate (ngSubmit)="save(f.value, f.valid)">
+    <div class="form-group">
+     <label for="userName">User Name</label><br>
+    <input type="text" name="userName" [(ngModel)]="user.userName" required minlength="5" maxlength="8" #userName="ngModel">
+    <div *ngIf="f.submitted &&  !userName.valid" class="alert alert-danger"> Username is required (minimum 5 characters)</div>
+    </div>
+    <div class="form-group">
+     <label for="email">Email</label><br>
+   <input type="email" name="email" [(ngModel)]="user.email" required pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #email="ngModel">
+    <div *ngIf="f.submitted &&  !email.valid" class="alert alert-danger"> Email is required and format should be <i>lwi@doe.com</i>.</div>
+
+    <div *ngIf="emailExist" class="alert alert-danger"> This email address is already used please try another one.</div>
+    </div>
+   <div class="form-group">
+     <label for="role">Role </label><br>
+     <input type="radio" [(ngModel)]="user.role" required #role="ngModel" value="user" name="role" > Customer
+     <input type="radio" [(ngModel)]="user.role" required value="admin" #role="ngModel" name="role"> Seller
+  <div *ngIf=" f.submitted &&!role.valid  " class="alert alert-danger">  Role  is required </div>
+   
+    </div>
+
+    <div class="form-group">
+     <label for="password"> Password</label><br>
+   <input type="password" name="password" [(ngModel)]="user.password" required #password="ngModel" validateEqual="confirmPassword" reverse="true">
+   <div *ngIf=" f.submitted &&!password.valid  " class="alert alert-danger">  Password required </div>
+    </div>
+     <div class="form-group">
+     <label for="confirmPassword">Retype Password</label><br>
+    <input type="password" name="confirmPassword" [(ngModel)]="user.confirmPassword" #confirmPassword="ngModel"required validateEqual="password">
+   <div *ngIf="f.submitted &&  !confirmPassword.valid" class="alert alert-danger">  Password mismatch </div>
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender </label><br>
+      <input type="radio" [(ngModel)]="user.gender" required #role="ngModel" value="male" name="gender" > Male
+      <input type="radio" [(ngModel)]="user.gender" required value="female" #role="ngModel" name="gendergender"> Female
+    
+     </div>
+    
+   <div class="form-group">
+   <button  class="btn btn-primary" [disabled]="loading">Add</button>
+   <a href='' class="btn btn-primary">Cancel</a>
+   <!--<button class="btn btn-primary" [routerLink]=" ['/login'] " type="submit">Login</button>-->
+   </div>
+    </form>
+</div>

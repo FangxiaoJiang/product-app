@@ -13,6 +13,8 @@ import {ProductService} from './product/product.service';
             <a routerLink="/dashboard">Dashboard</a>
             <a routerLink="/products">Products</a>
             <a *ngIf='userservice.getAdminState()' routerLink="/productmanagement">ProductManagement</a>
+            <a *ngIf='!userservice.getLoginState()' routerLink="/register">Register</a>
+            <a *ngIf='userservice.getLoginState()' routerLink="/user">User</a>
         </nav>
         <router-outlet></router-outlet>`,
     styleUrls:['./app.component.css']

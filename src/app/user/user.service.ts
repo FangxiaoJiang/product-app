@@ -2,21 +2,22 @@ import { Injectable } from '@angular/core';
 import {User} from './user';
 import {Observable} from 'rxjs/Rx';
 import {HttpClient} from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
-  constructor(private http:HttpClient){};
-  url="http://localhost:3000/api/User";
+  constructor(private http:HttpClient,private router:Router){};
+  url="http://localhost:3000/user";
   isLogin:boolean;
-  currentAccountId:String;
+  currentEmail:String;
   currentPassword:String;
   currentUser:User;
 
-  comfirm(accountid:String,password:String):Observable<boolean>{
-    return this.http.get(this.url+'/'+accountid+'/'+password).map(
+  comfirm(email:String,password:String):Observable<boolean>{
+    return this.http.get(this.url+'/'+email+'/'+password).map(
       value=>{
         if(value){
-          this.currentAccountId=accountid;
+          this.currentEmail=email;
           this.currentPassword=password;
           this.currentUser=(value as User);
           this.isLogin=true;
@@ -34,7 +35,7 @@ export class UserService {
 
   getAdminState(){
     if(this.isLogin)
-      if(this.currentAccountId=="Jiang")
+      if(this.currentUser.role=="admin")
         return true;
     return false;
   }
@@ -44,13 +45,14 @@ export class UserService {
   }
 
   setLoginState(){
-    this.currentAccountId=null;
+    this.currentEmail=null;
     this.currentPassword=null;
     this.currentUser=null;
     this.isLogin=false;
+    return this.router.navigate([""]);
   }
   
-  getUser(usercount:String):Observable<User>{
+  /*getUser(usercount:String):Observable<User>{
       return this.http.get(this.url+'/'+usercount).map(
         value=>{
           if(value)
@@ -89,5 +91,5 @@ export class UserService {
 
   deleteProduct(p:User):void{
     this.http.delete(this.url+'/'+p.accountid).subscribe();   
-  }
+  }*/
 }

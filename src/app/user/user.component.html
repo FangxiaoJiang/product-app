@@ -3,10 +3,10 @@
     <h4>Please Login:</h4>
     <form #form="ngForm" (ngSubmit)="submit(form);form.reset()">
         <div class="form-group">
-            <label for="accountid">Account Id</label>
-            <input required ngModel name="accountid" id="accountid" type="text" class="form-control" #accountid="ngModel"> 
-            <div class="alert alert-danger" *ngIf="accountid.touched && accountid.invalid">
-                <div *ngIf="accountid.errors.required">Account Id is required.</div>
+            <label for="email">Email</label>
+            <input required ngModel name="email" id="email" type="text" class="form-control" #email="ngModel"> 
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">
+                <div *ngIf="email.errors.required">Email is required.</div>
             </div>   
             <label for="password">Password</label>
             <input required ngModel name="password" id="password" type="text" class="form-control" #password="ngModel"> 
@@ -16,6 +16,7 @@
         </div>
         <button class="btn btn-primary" type="submits">Login</button>
     </form>
+    <a href="/register" >creat account</a><br>
 </div>    
 <div *ngIf="userservice.getLoginState()">
     <span>Welcome {{userservice.getCurrentUser()|FN}}</span>

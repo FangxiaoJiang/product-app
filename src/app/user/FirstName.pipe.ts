@@ -10,9 +10,9 @@ export class FirstNamePipe implements PipeTransform{
             return null;
         switch(user.gender){
             case "male":
-                return 'Mr.'+user.firstname;
+                return 'Mr.'+user.userName;
             case "female":
-                return 'Ms.'+user.firstname;
+                return 'Ms.'+user.userName;
         }
     }
 }
